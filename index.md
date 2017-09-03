@@ -6,14 +6,24 @@ title: zibeen的博客
 {{ page.title }}
 
 site.url
-这是我的第一个博客！
+## 这是我的第一个博客 ##！
 {{site.time}}
-这是我的第一个博客！
+
+> 这是我的第一个博客！
 {{site.pages}}
-这是我的第一个博客！
+# 这是我的第一个博客 #！
 {{site.posts}}
-这是我的第一个博客！
+
+1. [这是我的第一个博客](http://onehuang.github.io "qw")！
+2. 这是我的第一个博客！
 {{site.related_posts}}
+
+----------
+
+----------
+
+----------
+
 这是我的第一个博客！
 {{site.categories.CATEGORY}}
 这是我的第一个博客！
