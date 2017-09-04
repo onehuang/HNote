@@ -44,4 +44,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
+port: 4001
+#host: HOSTNAME  监听所给的主机名
+#baseurl: URL   网站根路径
