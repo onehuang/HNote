@@ -1,0 +1,7 @@
+---
+layout: default
+title: MySql的新能优化
+---
+#Mysql性能优化
+
+1. 
