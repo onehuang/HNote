@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>zibeen | 个人博客 </title>
+  <meta name="description" content="A simple and awesome blog theme powered by jekyll.">
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="zibeen" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <img src="http://localhost:4000/img/zibeen_logo.jpg" alt="" class="avatar">
+  
+  <a href="http://localhost:4000/" class="author_name">zibeen</a>
+  <span class="author_job">java&MySql&Oracle</span>
+  <span class="author_bio mbm">好记性不如烂笔头，所以我选择记录.</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">主页</a>
+      </li>
+       
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">归档</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">分类</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">标签</a>
+      </li>
+       
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 3 OCT 2017 -->
+        2017/10/03
+      </span>
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2017-10/MySql_1" class="post-title" title="MySql的新能优化">MySql的新能优化</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <p>#Mysql性能优化</p>
+
+<ol>
+  <li></li>
+</ol>
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 3 SEP 2017 -->
+        2017/09/03
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#spring">spring</a>
+        
+        <span>/</span>
+        
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#java">java</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2017-09/Java_Learn" class="post-title" title="java学习">java学习</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <p>1.远程调用
+  对象序列化API和RMI（远程方法调用）</p>
+
+<p>平台无关，安全性和网络移动性。
+  java体系结构：
+    类装载器，java Class和java API</p>
+
+<p>1.spring的学习</p>
+
+<p>spring的工作步骤
+   （1）读取并分析spring的配置文件
+   （2）通过java的反射机制，创建并集成上述配置文件中定义的对象。
+   （3）将创建的对象返回给开发者。</p>
+
+<p>Aop
+     面向切面的编程</p>
+
+<p>JMS 消息</p>
+
+<p>1.点对点
+2.订阅、发布</p>
+
+<p>解决hads冲突的方法：
+    当我们在使用散列函数后发现两个关键字key1≠key2，但是却有f(key1) = f(key2)，即有冲突时，怎么办呢？我们可以从生活中找寻思路。
+1.开放地址法
+  开放地址法就是一旦发生了冲突，就会寻找一个空的散列地址，只要散列表足够大，空的散列地址总能找到，并记录存入。<br />
+  (1)线性探测法
+    如果发生冲突，会在散列地址一个挨着一个去找空的散列地址，直到找到空址并将改址插入。
+   公式：fi(key) = (f(key)+di) MOD m (di=1,2,3,……,m-1)
+  (2)二次探测
+     双向寻找到可能的空位置。<br />
+     fi(key) = (f(key)+di) MOD m (di = 12, -12, 22, -22,……, q2, -q2, q &lt;= m/2)
+  (3)伪随机探测
+     fi(key) = (f(key)+di) MOD m (di是一个随机数列)
+     伪随机数是说，如果我们设置随机种子相同，则不断调用随机函数可以生成不会重复的数列，我们在査找时，用同样的随机种子，它每次得到的数列是相同的，相同的 di 当然可以得到相同的散列地址。
+     不是值需要争夺一个地址的情况，我们称这种现象为堆积。很显然，堆积的出现，使得我们需要不断处理冲突，无论是存入还是査找效率都会大大降低。
+① 处理溢出需另编程序。一般可另外设立一个溢出表，专门用来存放上述哈希表中放不下的记录。此溢出表最简单的结构是顺序表，查找方法可用顺序查找。
+② 按上述算法建立起来的哈希表，删除工作非常困难。如果将此元素删除，查找的时会发现空槽，则会认为要找的元素不存在。只能标上已被删除的标记，否则，将会影响以后的查找。
+③ 线性探测法很容易产生堆聚现象。所谓堆聚现象，就是存入哈希表的记录在表中连成一片。按照线性探测法处理冲突，如果生成哈希地址的连续序列愈长 ( 即不同关键字值的哈希地址相邻在一起愈长 ) ，则当新的记录加入该表时，与这个序列发生冲突的可能性愈大。因此，哈希地址的较长连续序列比较短连续序列生长得快，这就意味着，一旦出现堆聚 ( 伴随着冲突 ) ，就将引起进一步的堆聚。
+2.拉链法
+   将所有关键字为同义词的记录存储在一个单链表中，我们称这种表为同义词子表，在散列表中只存储所有同义词子表的头指针。
+优点：
+   1.拉链法处理冲突简单，且无堆积现象，即非同义词决不会发生冲突，因此平均查找长度较短；
+   2.由于拉链法中各链表上的结点空间是动态申请的，故它更适合于造表前无法确定表长的情况；
+   3.开放定址法为减少冲突，要求装填因子α较小，故当结点规模较大时会浪费很多空间。而拉链法中可取α≥1，且结点较大时，拉链法中增加的指针域可忽略不计，因此节省空间；
+   4.在用拉链法构造的散列表中，删除结点的操作易于实现。只要简单地删去链表上相应的结点即可。而对开放地址法构造的散列表，删除结点不能简单地将被删结 点的空间置为空，否则将截断在它之后填人散列表的同义词结点的查找路径。这是因为各种开放地址法中，空地址单元（即开放地址）都是查找失败的条件。因此在用开放地址法处理冲突的散列表上执行删除操作，只能在被删结点上做删除标记，而不能真正删除结点。
+缺点：
+   指针需要额外的空间，故当结点规模较小时，开放定址法较为节省空间，而若将节省的指针空间用来扩大散列表的规模，可使装填因子变小，这又减少了开放定址法中的冲突，从而提高平均查找速度。
+3.再散列（双重散列，多重散列）
+  当发生冲突时，使用第二个、第三个、哈希函数计算地址，直到无冲突时。缺点：计算时间增加。
+4.建立一个公共溢出区
+  假设哈希函数的值域为[0,m-1],则设向量HashTable[0..m-1]为基本表，另外设立存储空间向量OverTable[0..v]用以存储发生冲突的记录。
+备注：
+同义词：两个关键字通过哈希函数获得的地址相同，则这两个关键字为同义词。
+堆积：关键字通过哈希函数获得相同的哈希地址，则出现堆积。</p>
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 3 SEP 2017 -->
+        2017/09/03
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#编程">编程</a>
+        
+        <span>/</span>
+        
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#java">java</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2017-09/Git-to-lean" class="post-title" title="git的入门学习">git的入门学习</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <ol>
+  <li>
+    <p>Git的介绍</p>
+  </li>
+  <li>
+    <p>Git的安装</p>
+  </li>
+  <li>
+    <p>Git的使用</p>
+  </li>
+  <li>
+    <p>Git应该记住的命令总结</p>
+  </li>
+</ol>
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 18 AUG 2015 -->
+        2015/08/18
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#tutorial">tutorial</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2015-08/welcome-to-jekyll" class="post-title" title="Welcome to Jekyll!">Welcome to Jekyll!</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 16 AUG 2013 -->
+        2013/08/16
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#code">code</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2013-08/code-highlighting-post" class="post-title" title="Syntax Highlighting Post">Syntax Highlighting Post</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        Demo post displaying the various ways of highlighting code in Markdown.
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 12 AUG 2013 -->
+        2013/08/12
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#link post">link post</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2013-08/sample-link-post" class="post-title" title="Sample Link Post">Sample Link Post</a>
+      
+      <a class="post-title-link" href="http://renyuanz.github.io" target="_blank" title="Sample Link Post"><i class="fa fa-external-link"></i></a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        Try click on the link icon.
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 23 MAY 2013 -->
+        2013/05/23
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#paragraph">paragraph</a>
+        
+        <span>/</span>
+        
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#feature photo">feature photo</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2013-05/readability-feature-post" class="post-title" title="Post with Large Feature Image and Text">Post with Large Feature Image and Text</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        Custom written post descriptions are the way to go... if you're not lazy.
+      </p>
+    </div>
+    
+
+    
+    <div class="post-image-feature">
+      <img src=
+      
+      "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?crop=entropy&dpr=2&fit=crop&fm=jpg&h=475&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250"
+      
+      alt="Post with Large Feature Image and Text feature image">
+
+      
+      <span class="image-credit">Photo Credit: <a href="https://unsplash.com/photos/oMpAz-DN-9I">Greg Rakozy</a></span>
+      
+    </div><!-- /.image-wrap -->
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 22 MAY 2012 -->
+        2012/05/22
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#paragraph">paragraph</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2012-05/readability-post" class="post-title" title="Testing Readability with a Bunch of Text">Testing Readability with a Bunch of Text</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        A ton of text to test readability.
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        <!-- 10 MAR 2011 -->
+        2011/03/10
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="http://localhost:4000/categories/#hello world">hello world</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="http://localhost:4000/articles/2011-03/sample-post" class="post-title" title="Sample Post">Sample Post</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more.
+      </p>
+    </div>
+    
+
+    
+    <div class="post-image-feature">
+      <img src=
+      
+      "https://images.unsplash.com/photo-1440635592348-167b1b30296f?crop=entropy&dpr=2&fit=crop&fm=jpg&h=475&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1250"
+      
+      alt="Sample Post feature image">
+
+      
+      <span class="image-credit">Photo Credit: <a href="https://unsplash.com/photos/Ki0dpxd3LGc">thomas shellberg</a></span>
+      
+    </div><!-- /.image-wrap -->
+    
+
+</section>
+
+
+        <!--
+<footer>
+  &copy; 2017 zibeen. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+-->
+<footer>
+  &copy; 2017 zibeen.
+</footer>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>
