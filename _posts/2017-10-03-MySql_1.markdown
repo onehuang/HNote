@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: MySql的新能优化
 ---
 #Mysql性能优化
