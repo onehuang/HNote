@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  java学习
-description: 主要是java中的一些小问题总结
+excerpt: 主要是java中的一些小问题总结
 categories: [spring, java]
 tags: [java, spring]
+comments: true
 ---
 
 1.远程调用
