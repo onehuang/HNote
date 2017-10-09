@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  java多线程编程
-excerpt: java多线程有关的学习与总结。
+excerpt: "   线程是操作系统调度的最小单位，它被包含在进程中，是进程实际运行单位。线程自己不拥有系统资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。线程有就绪、阻塞和运行三种基本状态。"
 categories: [thread, java]
 tags: [java, spring]
 comments: true
@@ -369,25 +369,27 @@ java.util.concurrent包下面的同步集合：ConcurrentHashMap，CopyOnWriteAr
 * 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。    
 * 不剥夺条件：进程已获得的资源，在末使用完之前，不能强行剥夺。    
 * 循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。    
-避免死锁最简单的方法就是阻止循环等待条件，将系统中所有的资源设置标志位、排序，规定所有的进程申请资源必须以一定的顺序（升序或降序）做操作来避免死锁。    
+避免死锁最简单的方法就是阻止循环等待条件，将系统中所有的资源设置标志位、排序，规定所有的进程申请资源必须以一定的顺序（升序或降序）做操作来避免死锁。 
 
 ***
 ##### 27.如何避免死锁？Java中活锁和死锁有什么区别？    
-&ensp;&ensp;&ensp;&ensp;这是上题的扩展，活锁和死锁类似，不同之处在于处于活锁的线程或进程的状态是不断改变的，活锁可以认为是一种特殊的饥饿。一个现实的活锁例子是两个人在狭小的走廊碰到，两个人都试着避让对方好让彼此通过，但是因为避让的方向都一样导致最后谁都不能通过走廊。简单的说就是，活锁和死锁的主要区别是前者进程的状态可以改变但是却不能继续执行。    
+&ensp;&ensp;&ensp;&ensp;这是上题的扩展，活锁和死锁类似，不同之处在于处于活锁的线程或进程的状态是不断改变的，活锁可以认为是一种特殊的饥饿。一个现实的活锁例子是两个人在狭小的走廊碰到，两个人都试着避让对方好让彼此通过，但是因为避让的方向都一样导致最后谁都不能通过走廊。简单的说就是，活锁和死锁的主要区别是前者进程的状态可以改变但是却不能继续执行。   
 
+***
+**********************************
 ##### 28.怎么检测一个线程是否拥有锁？
-&ensp;&ensp;&ensp;&ensp;在java.lang.Thread中有一个方法叫holdsLock()，它返回true如果当且仅当当前线程拥有某个具体对象的锁。  
+&ensp;&ensp;&ensp;&ensp;在java.lang.Thread中有一个方法叫holdsLock()，它返回true如果当且仅当当前线程拥有某个具体对象的锁。   
 
 ***
 ##### 29.你如何在Java中获取线程堆栈？
-&ensp;&ensp;&ensp;&ensp;可以用jstack这个工具来获取，它对线程id进行操作，你可以用jps这个工具找到id。  
+&ensp;&ensp;&ensp;&ensp;可以用jstack这个工具来获取，它对线程id进行操作，你可以用jps这个工具找到id。    
 
 ***
 ##### 30.JVM中哪个参数是用来控制线程的栈的大小？  
 &ensp;&ensp;&ensp;&ensp;-Xss参数用来控制线程的堆栈大小。
 
-***
- ##### 31.Java中synchronized 和 ReentrantLock 有什么不同？  
+***   
+##### 31.Java中synchronized 和 ReentrantLock 有什么不同？  
 &ensp;&ensp;&ensp;&ensp;ReentrantLock是在java.util.concurrent包中；  
 ReentrantLock 提供了相同的可见性和排序保证作为隐式锁定，由Java中的synchronized关键字获取，它提供了更多的功能，在某些方面有所不同。如前所述，synchronized和ReentrantLock之间的主要区别是能够中断锁定和超时的能力。   
 （1）ReentrantLock 和synchronized关键字之间的另一个显着差异是公平性。synchronized 关键字不支持公平性。任何线程一旦释放就可以获取锁定，不能指定偏好，另一方面可以通过指定公平属性使ReentrantLock 公平，同时创建ReentrantLock的实例。公平财产提供锁定最长等待线程，以备争用。  
@@ -400,13 +402,133 @@ ReentrantLock的特点：
 * (2)等待锁定时能够超时。  
 * (3)创造公平的锁的力量。  
 * (4)获取等待线程列表的A​​PI。  
-* (5)灵活性尝试锁定而不阻塞。  
+* (5)灵活性尝试锁定而不阻塞。 
 
 ***
-*   Red
-*   Green
-*   Blue
+##### 32.有三个线程T1，T2，T3，怎么确保它们按顺序执行？    
+&ensp;&ensp;&ensp;&ensp;在多线程中有多种方法让线程按特定顺序执行，你可以用线程类的join()方法在一个线程中启动另一个线程，另外一个线程完成该线程继续执行。为了确保三个线程的顺序你应该先启动最后一个(T3调用T2，T2调用T1)，这样T1就会先完成而T3最后完成。join()也是一种阻塞方式，直到挂接已经叫做死线或指定等待时间的线程结束。  
 
+***
+##### 33.Thread类中的yield方法有什么作用？  
+&ensp;&ensp;&ensp;&ensp;Yield方法可以暂停当前正在执行的线程对象，让其它有相同优先级的线程执行。它是一个静态方法而且只保证当前线程放弃CPU占用而不能保证使其它线程一定能占用CPU，执行yield()的线程有可能在进入到暂停状态后马上又被执行。  
+yield和wait的区别：
+* (1) wait定义在java.lang.Object中声明，而yield()是在java.lang.Thread类中声明。    
+* (2) wait()有两个重载的版本，一个超时时间和无参的版本；yield()没有被重载。     
+* (3) wait()是一个实例方法；yield()是一个静态方法。    
+* (4) wait()和yield()的另一个区别是，当一个线程调用wait()时，它将释放监视器。    
+* (5) wait()必须在同步块或者同步方法中调用，而yield()不用。  
+* (6) wait()尽量在循环里面掉，yield()尽量是在循环外面。  
+
+***
+##### 34.Java中ConcurrentHashMap的并发度是什么？  
+&ensp;&ensp;&ensp;&ensp;ConcurrentHashMap把实际map划分成若干部分来实现它的可扩展性和线程安全。这种划分是使用并发度获得的，它是ConcurrentHashMap类构造函数的一个可选参数，默认值为16，这样在多线程情况下就能避免争用。   
+
+***
+##### 35. Java中Semaphore是什么？    
+&ensp;&ensp;&ensp;&ensp;Java中的Semaphore是一种新的同步类，它是一个计数信号。从概念上讲，从概念上讲，信号量维护了一个许可集合。如有必要，在许可可用前会阻塞每一个 acquire()，然后再获取该许可。每个 release()添加一个许可，从而可能释放一个正在阻塞的获取者。但是，不使用实际的许可对象，Semaphore只对可用许可的号码进行计数，并采取相应的行动。信号量常常用于多线程的代码中，比如数据库连接池。  
+
+***
+##### 36.如果你提交任务时，线程池队列已满。会时发会生什么？    
+&ensp;&ensp;&ensp;&ensp;这个问题问得很狡猾，许多程序员会认为该任务会阻塞直到线程池队列有空位。事实上如果一个任务不能被调度执行那么ThreadPoolExecutor’s submit()方法将会抛出一个RejectedExecutionException异常。   
+
+***
+##### 37.Java线程池中submit() 和 execute()方法有什么区别？  
+&ensp;&ensp;&ensp;&ensp;两个方法都可以向线程池提交任务，execute()方法的返回类型是void，它定义在Executor接口中, 而submit()方法可以返回持有计算结果的Future对象，它定义在ExecutorService接口中，它扩展了Executor接口，其它线程池类像ThreadPoolExecutor和ScheduledThreadPoolExecutor都有这些方法。   
+
+***
+##### 38.什么是阻塞式方法？  
+&ensp;&ensp;&ensp;&ensp;阻塞式方法是指程序会一直等待该方法完成期间不做其他事情，ServerSocket的accept()方法就是一直等待客户端连接。这里的阻塞是指调用结果返回之前，当前线程会被挂起，直到得到结果之后才会返回。此外，还有异步和非阻塞式方法在任务完成前就返回。    
+
+***
+##### 39.Swing是线程安全的吗？ 为什么？    
+&ensp;&ensp;&ensp;&ensp;你可以很肯定的给出回答，Swing不是线程安全的，但是你应该解释这么回答的原因即便面试官没有问你为什么。当我们说swing不是线程安全的常常提到它的组件，这些组件不能在多线程中进行修改，所有对GUI组件的更新都要在AWT线程中完成，而Swing提供了同步和异步两种回调方法来进行更新。  
+
+***
+##### 40.Java中invokeAndWait 和 invokeLater有什么区别？  
+这两个方法是Swing API 提供给Java开发者用来从当前线程而不是事件派发线程更新GUI组件用的。InvokeAndWait()同步更新GUI组件，比如一个进度条，一旦进度更新了，进度条也要做出相应改变。如果进度被多个线程跟踪，那么就调用invokeAndWait()方法请求事件派发线程对组件进行相应更新。而invokeLater()方法是异步调用更新组件的。    
+
+***
+##### 41.Swing API中那些方法是线程安全的？  
+这个问题又提到了swing和线程安全，虽然组件不是线程安全的但是有一些方法是可以被多线程安全调用的，比如repaint(), revalidate()。 JTextComponent的setText()方法和JTextArea的insert() 和 append() 方法也是线程安全的。  
+
+***
+##### 42. 如何在Java中创建Immutable对象？  
+这个问题看起来和多线程没什么关系， 但不变性有助于简化已经很复杂的并发程序。Immutable对象可以在没有同步的情况下共享，降低了对该对象进行并发访问时的同步化开销。可是Java没有@Immutable这个注解符，要创建不可变类，要实现下面几个步骤：通过构造方法初始化所有成员、对变量不要提供setter方法、将所有的成员声明为私有的，这样就不允许直接访问这些成员、在getter方法中，不要直接返回对象本身，而是克隆对象，并返回对象的拷贝。  
+
+***  
+##### 43.Java中的ReadWriteLock是什么？  
+一般而言，读写锁是用来提升并发程序性能的锁分离技术的成果。Java中的ReadWriteLock是Java 5 中新增的一个接口，一个ReadWriteLock维护一对关联的锁，一个用于只读操作一个用于写。在没有写线程的情况下一个读锁可能会同时被多个读线程持有。写锁是独占的，你可以使用JDK中的ReentrantReadWriteLock来实现这个规则，它最多支持65535个写锁和65535个读锁。
+ Lock、synchronized和ReadWriteLock的区别和联系  
+1. 它可以锁住一个方法或者一段代码块;有多个线程ThreadA、ThreadB…ThreadN等，它们同时去执行一段被synchronized修饰的代码块，如果这里ThreadB抢到了同步锁，那么其他的线程都必须等待，ThreadB只有两种情况下会释放锁：  
+  1）ThreadB执行完了这段代码块，这个锁就会被释放；     
+  2）当ThreadB执行这段代码块抛出异常的时候，jvm虚拟机也会释放这个锁。      
+如果ThreadB执行时间特别长，那么其他的线程就会一直等待，这样会照成很大的资源浪费，并且没有效率。    
+
+2.Lock和synchronized最大的区别就是当使用synchronized，一个线程抢占到锁资源，其他线程必须等待；而使用Lock，一个线程抢占到锁资源，其他的线程可以不等待或者设置等待时间，实在抢不到可以去做其他的业务逻辑。  
+lock接口中有4个方法，如下：  
+{% highlight java %}  
+public interface Lock {
+    void lock();
+    void lockInterruptibly() throws InterruptedException;
+    boolean tryLock();
+    boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
+    void unlock();
+}
+{% endhighlight %} 
+
+3.它可以实现读写锁，当读取的时候线程会获得read锁，其他线程也可以获得read锁同时并发的去读取，但是写程序运行获取到write锁的时候，其他线程是不能进行操作的，因为write是排它锁，而上面介绍的两种不管你是read还是write没有抢到锁的线程都会被阻塞或者中断，它也是个接口，里面定义了两种方法readLock()和readLock()，他的一个实现类是ReentrantReadWriteLock。  
+
+***  
+##### 44.多线程中的忙循环是什么?
+忙循环就是程序员用循环让一个线程等待，不像传统方法wait(), sleep() 或 yield() 它们都放弃了CPU控制，而忙循环不会放弃CPU，它就是在运行一个空循环。这么做的目的是为了保留CPU缓存，在多核系统中，一个等待线程醒来的时候可能会在另一个内核运行，这样会重建缓存。为了避免重建缓存和减少等待重建的时间就可以使用它了。  
+
+***  
+##### 45.volatile 变量和 atomic 变量有什么不同？    
+这是个有趣的问题。首先，volatile 变量和 atomic 变量看起来很像，但功能却不一样。Volatile变量可以确保先行关系，即写操作会发生在后续的读操作之前, 但它并不能保证原子性。例如用volatile修饰count变量那么 count++ 操作就不是原子性的。而AtomicInteger类提供的atomic方法可以让这种操作具有原子性如getAndIncrement()方法会原子性的进行增量操作把当前值加一，其它数据类型和引用变量也可以进行相似操作。    
+
+***  
+##### 46.如果同步块内的线程抛出异常会发生什么？  
+这个问题坑了很多Java程序员，若你能想到锁是否释放这条线索来回答还有点希望答对。无论你的同步块是正常还是异常退出的，里面的线程都会释放锁，所以对比锁接口我更喜欢同步块，因为它不用我花费精力去释放锁，该功能可以在finally block里释放锁实现。  
+
+***  
+##### 47.单例模式的双检锁是什么？  
+这个问题在Java面试中经常被问到，但是面试官对回答此问题的满意度仅为50%。一半的人写不出双检锁还有一半的人说不出它的隐患和Java1.5是如何对它修正的。它其实是一个用来创建线程安全的单例的老方法，当单例实例第一次被创建时它试图用单个锁进行性能优化，但是由于太过于复杂在JDK1.4中它是失败的，我个人也不喜欢它。无论如何，即便你也不喜欢它但是还是要了解一下，因为它经常被问到。
+
+***  
+##### 48.如何在Java中创建线程安全的Singleton？  
+这是上面那个问题的后续，如果你不喜欢双检锁而面试官问了创建Singleton类的替代方法，你可以利用JVM的类加载和静态变量初始化特征来创建Singleton实例，或者是利用枚举类型来创建Singleton，我很喜欢用这种方法。  
+
+***  
+##### 49.写出3条你遵循的多线程最佳实践    
+这种问题我最喜欢了，我相信你在写并发代码来提升性能的时候也会遵循某些最佳实践。以下三条最佳实践我觉得大多数Java程序员都应该遵循：  
+* 给你的线程起个有意义的名字。  
+这样可以方便找bug或追踪。OrderProcessor, QuoteProcessor or TradeProcessor 这种名字比 Thread-1. Thread-2 and Thread-3 好多了，给线程起一个和它要完成的任务相关的名字，所有的主要框架甚至JDK都遵循这个最佳实践。
+* 避免锁定和缩小同步的范围  
+锁花费的代价高昂且上下文切换更耗费时间空间，试试最低限度的使用同步和锁，缩小临界区。因此相对于同步方法我更喜欢同步块，它给我拥有对锁的绝对控制权。  
+* 多用同步类少用wait 和 notify
+首先，CountDownLatch, Semaphore, CyclicBarrier 和 Exchanger 这些同步类简化了编码操作，而用wait和notify很难实现对复杂控制流的控制。其次，这些类是由最好的企业编写和维护在后续的JDK中它们还会不断优化和完善，使用这些更高等级的同步工具你的程序可以不费吹灰之力获得优化。  
+* 多用并发集合少用同步集合
+这是另外一个容易遵循且受益巨大的最佳实践，并发集合比同步集合的可扩展性更好，所以在并发编程时使用并发集合效果更好。如果下一次你需要用到map，你应该首先想到用ConcurrentHashMap。      
+
+***  
+##### 50.如何强制启动一个线程？
+这个问题就像是如何强制进行Java垃圾回收，目前还没有这样得方法，虽然你可以使用System.gc()来进行垃圾回收，但是不保证能成功。在Java里面没有办法强制启动一个线程，它是被线程调度器控制着且Java没有公布相关的API。  
+
+***  
+##### 51.Java中的fork join框架是什么？  
+fork join框架是JDK7中出现的一款高效的工具，Java开发人员可以通过它充分利用现代服务器上的多处理器。它是专门为了那些可以递归划分成许多子模块设计的，目的是将所有可用的处理能力用来提升程序的性能。fork join框架一个巨大的优势是它使用了工作窃取算法，可以完成更多任务的工作线程可以从其它线程中窃取任务来执行。
+[http://www.infoq.com/cn/articles/fork-join-introduction] 
+
+***  
+##### 52.Java多线程中调用wait() 和 sleep()方法有什么不同？  
+Java程序中wait 和 sleep都会造成某种形式的暂停，它们可以满足不同的需要。wait()方法用于线程间通信，如果等待条件为真且其它线程被唤醒时它会释放锁，而sleep()方法仅仅释放CPU资源或者让当前线程停止执行一段时间，但不会释放锁。 
+
+
+参考资料：
+[http://www.importnew.com/12773.html]
+
+[http://www.importnew.com/12773.html]:http://www.importnew.com/12773.html
+[http://www.infoq.com/cn/articles/fork-join-introduction]:http://www.infoq.com/cn/articles/fork-join-introduction
 [参考资料1]: http://www.importnew.com/12773.html 
 [实例代码]:   https://github.com/onehuang/GitHubResource/blob/master/src/com/hzb/javaThread.java
 
