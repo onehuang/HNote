@@ -15,8 +15,6 @@
 e ^ \pi\sqrt (12+x)
 
 \]
-apm install markdown-scroll-syncapm install markdown-scroll-syncapm install markdown-scroll-syncapm install markdown-scroll-syncapm install markdown-scroll-sync
-
 
 ```java
 public static void main(String[] args) {
