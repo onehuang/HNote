@@ -68,3 +68,5 @@ owner:
   500px: #username
   codepen: #username
   reddit: #username
+
+theme: jekyll-theme-dinky
